@@ -1,0 +1,180 @@
+{
+  "intents": [
+    {
+      "intent": "استفسار",
+      "examples": [
+        {
+          "text": "التواصل"
+        },
+        {
+          "text": "الموقع"
+        },
+        {
+          "text": "الموقع الالكتروني"
+        },
+        {
+          "text": "ايميل التواصل"
+        },
+        {
+          "text": "تواصل"
+        },
+        {
+          "text": "جوال"
+        },
+        {
+          "text": "رقم التواصل"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "ترحيب",
+      "examples": [
+        {
+          "text": "السلام عليكم"
+        },
+        {
+          "text": "اهلا"
+        },
+        {
+          "text": "اهلين"
+        },
+        {
+          "text": "مرحبا"
+        },
+        {
+          "text": "هلا"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "من_نحن",
+      "examples": [
+        {
+          "text": "من نحن"
+        }
+      ],
+      "description": "من نحن"
+    }
+  ],
+  "entities": [],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "ترحيب",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "ياهلا\n-لمعلومات التواصل اكتب تواصل\n-للتعرف علينا اكتب من نحن"
+              },
+              {
+                "text": "هلابك\n-لمعلومات التواصل اكتب تواصل\n-للتعرف علينا اكتب من نحن"
+              },
+              {
+                "text": "اهلا .. \n-لمعلومات التواصل اكتب تواصل\n-للتعرف علينا اكتب من نحن"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#ترحيب",
+      "dialog_node": "node_1_1625356541190",
+      "previous_sibling": "node_8_1624944487256"
+    },
+    {
+      "type": "standard",
+      "title": "استفسار",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "للتواصل \nرقم الجوال\n 0580202718\nالايميل \n(info@s-m.com.sa )\nالموقع الالكتروني \nhttps://s-m.com.sa/index.html \n"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "#استفسار",
+      "dialog_node": "node_8_1624944487256",
+      "previous_sibling": "node_9_1625355513059"
+    },
+    {
+      "type": "standard",
+      "title": "من نحن؟",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "مؤسسة تجارية وطنية تأسست عام 2010 م مسجلة لدى وزارة التجارة ومتخصصة في المعدات الآلية والروبوت والذكاء الصناعي وتعتبر المنشأة التجارية الأولى من نوعها في خدمة الباحثين والمبتكرين في العالم العربي ومصنفة لدى مجلة فوربس العالمية كأحد أكثر الشركات ابداعا في المملكة العربية السعودية في أخر تصنيف عام 2015."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#من_نحن",
+      "dialog_node": "node_9_1625355513059"
+    },
+    {
+      "type": "standard",
+      "title": "أي شيء آخر",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "لم أفهم، يمكنك محاولة اعادة الصياغة"
+              },
+              {
+                "text": "هل يمكنك اعادة صياغة عبارتك؟ أنا لا فهم"
+              },
+              {
+                "text": "لم أفهم قصدك"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "أي شيء آخر",
+      "previous_sibling": "node_1_1625356541190",
+      "disambiguation_opt_out": true
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "disambiguation": {
+      "prompt": ":هل قصدت",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "كل ما سبق خطأ"
+    },
+    "human_agent_assist": {
+      "prompt": ":هل قصدت"
+    }
+  },
+  "learning_opt_out": false,
+  "name": "تحدث",
+  "language": "ar",
+  "description": ""
+}
